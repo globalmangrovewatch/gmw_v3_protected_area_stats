@@ -43,8 +43,8 @@ def calc_unq_val_pxl_areas(vals_img, pix_area_img, uid_img, unq_val_area_lut):
     if numpy.sum(msk) > 0:
         unq_val_area_lut['count'] = numpy.sum(msk)
         unq_val_area_lut['area'] = numpy.sum(pxl_area_arr[msk])
-        unq_val_area_lut['vals'] = numpy.sum(vals_arr[msk])
-        unq_val_area_lut['vals_area'] = numpy.sum(vals_arr[msk] * pxl_area_arr[msk])
+        unq_val_area_lut['agb'] = numpy.sum(vals_arr[msk])
+        unq_val_area_lut['agb_area'] = numpy.sum(vals_arr[msk] * pxl_area_arr[msk])
 
         vals_unq_val_arr = vals_arr[msk].flatten()
         vals_hist, bin_edges = numpy.histogram(vals_unq_val_arr, bins=81, range=(0, 2025))

@@ -1,5 +1,6 @@
 import os
 import pprint
+import tqdm
 
 import rsgislib.vectorutils
 import rsgislib.tools.utils
@@ -38,22 +39,22 @@ out_data_dict["loss_2019"] = list()
 out_data_dict["gain_2020"] = list()
 out_data_dict["loss_2020"] = list()
 
-for protect_area_lyr in protect_area_lyrs:
-    print(protect_area_lyr)
+for protect_area_lyr in tqdm.tqdm(protect_area_lyrs):
+    #print(protect_area_lyr)
     ext_stats_dir = os.path.join(out_path, protect_area_lyr, "extent_tile_stats")
     chng_ext_stats_dir = os.path.join(out_path, protect_area_lyr, "chng_extent_tile_stats")
 
     protect_area_tiles = tile_lut[protect_area_lyr]
     for protect_area_tile in protect_area_tiles:
-        print(protect_area_tile)
+        #print(protect_area_tile)
         stats_96_ext_file = os.path.join(ext_stats_dir, "{}_extent.json".format(protect_area_tile))
         stats_chng_ext_file = os.path.join(chng_ext_stats_dir, "{}_chng_extent.json".format(protect_area_tile))
 
         stats_96_ext_dict = rsgislib.tools.utils.read_json_to_dict(stats_96_ext_file)
         stats_chng_ext_dict = rsgislib.tools.utils.read_json_to_dict(stats_chng_ext_file)
 
-        pprint.pprint(stats_96_ext_dict)
-        pprint.pprint(stats_chng_ext_dict)
+        #pprint.pprint(stats_96_ext_dict)
+        #pprint.pprint(stats_chng_ext_dict)
 
         out_data_dict["WDPAID"].append(int(protect_area_lyr.replace("WDPAID_", "")))
         out_data_dict["1996_ext"].append(float(stats_96_ext_dict["area"]))
@@ -77,7 +78,6 @@ for protect_area_lyr in protect_area_lyrs:
         out_data_dict["loss_2019"].append(float(stats_chng_ext_dict["2019"]["area"][1]))
         out_data_dict["gain_2020"].append(float(stats_chng_ext_dict["2020"]["area"][0]))
         out_data_dict["loss_2020"].append(float(stats_chng_ext_dict["2020"]["area"][1]))
-    break
 
 df_stats = pandas.DataFrame.from_dict(out_data_dict)
 df_stats.to_feather("protected_area_summarised_base_stats.feather")

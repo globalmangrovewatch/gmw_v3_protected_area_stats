@@ -2,6 +2,7 @@ import rsgislib.vectorutils
 import rsgislib.imageutils.imagelut
 import rsgislib.tools.filetools
 import rsgislib.tools.utils
+import tqdm
 
 img_lut_file = "/home/pete/Documents/gmw_protected_areas/data/gmw_protect_areas_imgs_lut.gpkg"
 
@@ -11,7 +12,7 @@ vec_lyrs = rsgislib.vectorutils.get_vec_lyrs_lst(vec_file)
 gmw_ext_lut = dict()
 gmw_srtm_lut = dict()
 
-for vec_lyr in vec_lyrs:
+for vec_lyr in tqdm.tqdm(vec_lyrs):
     vec_bbox = rsgislib.vectorutils.get_vec_layer_extent(vec_file, vec_lyr)
 
     gmw_ext_imgs = rsgislib.imageutils.imagelut.query_img_lut(vec_bbox, img_lut_file, lyr_name="gmw_ext_1996")

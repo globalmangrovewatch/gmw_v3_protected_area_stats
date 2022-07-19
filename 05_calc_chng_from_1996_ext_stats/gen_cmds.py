@@ -32,7 +32,7 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             if not os.path.exists(roi_dir):
                 os.mkdir(roi_dir)
 
-            out_dir = os.path.join(out_protect_dir, "extent_tile_stats")
+            out_dir = os.path.join(out_protect_dir, "chng_extent_tile_stats")
             if not os.path.exists(out_dir):
                 os.mkdir(out_dir)
 
@@ -59,7 +59,7 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
                     )
 
                 out_file = os.path.join(
-                    out_dir, "{}_extent.json".format(protect_area_tile)
+                    out_dir, "{}_chng_extent.json".format(protect_area_tile)
                 )
                 if not os.path.exists(out_file):
                     c_dict = dict()

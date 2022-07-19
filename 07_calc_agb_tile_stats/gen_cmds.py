@@ -69,7 +69,7 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             tile_lut_file="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_tiles_lut.json",
             agb_img_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_agb_hchm/agb_mng_mjr_2020_tif",
             pxl_area_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_agb_hchm/pxl_areas",
-            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_ext_protect_areas",
+            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas",
         )
 
         self.pop_params_db()

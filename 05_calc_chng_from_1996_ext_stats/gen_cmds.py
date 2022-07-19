@@ -39,7 +39,7 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             for protect_area_tile in protect_area_tiles:
                 chng_ext_imgs = dict()
                 for chng_year in chng_years:
-                    chng_img_dir = os.path.join(kwargs["ext_img_dir"], f"gmw_v3_f1996_t{chng_year}")
+                    chng_img_dir = os.path.join(kwargs["chng_ext_img_dir"], f"gmw_v3_f1996_t{chng_year}")
 
                     chng_ext_img_file = rsgislib.tools.filetools.find_file_none(
                         chng_img_dir, f"*{protect_area_tile}*.tif"

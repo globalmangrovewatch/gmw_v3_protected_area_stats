@@ -17,5 +17,5 @@ out_vec_file = "/home/pete/Documents/gmw_protected_areas/data/protected_areas/WD
 
 for uiq_area in tqdm.tqdm(unq_vals):
     uiq_gpdf = base_gpdf[base_gpdf["WDPAID"] == uiq_area]
-    uid_lyr = "WDPAID_{}".format(uiq_area)
+    uid_lyr = "WDPAID_{}".format(int(uiq_area))
     uiq_gpdf.to_file(out_vec_file, layer=uid_lyr, driver="GPKG")

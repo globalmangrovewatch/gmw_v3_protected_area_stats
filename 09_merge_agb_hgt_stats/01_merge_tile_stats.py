@@ -27,7 +27,7 @@ out_agb_hist = dict()
 out_hchm_hist = dict()
 
 for protect_area_lyr in tqdm.tqdm(protect_area_lyrs):
-    print(protect_area_lyr)
+    #print(protect_area_lyr)
     agb_stats_dir = os.path.join(out_path, protect_area_lyr, "agb_tile_stats")
     hgt_stats_dir = os.path.join(out_path, protect_area_lyr, "hchm_tile_stats")
 
@@ -40,7 +40,7 @@ for protect_area_lyr in tqdm.tqdm(protect_area_lyrs):
     hchm_count = 0.0
 
     for protect_area_tile in protect_area_tiles:
-        print(protect_area_tile)
+        #print(protect_area_tile)
         stats_agb_file = os.path.join(agb_stats_dir, "{}_agb.json".format(protect_area_tile))
         stats_hgt_file = os.path.join(hgt_stats_dir, "{}_hchm.json".format(protect_area_tile))
 

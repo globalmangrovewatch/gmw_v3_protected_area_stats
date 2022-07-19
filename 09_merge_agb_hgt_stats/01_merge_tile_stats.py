@@ -47,8 +47,8 @@ for protect_area_lyr in tqdm.tqdm(protect_area_lyrs):
         stats_agb_dict = rsgislib.tools.utils.read_json_to_dict(stats_agb_file)
         stats_hgt_dict = rsgislib.tools.utils.read_json_to_dict(stats_hgt_file)
 
-        pprint.pprint(stats_agb_dict)
-        pprint.pprint(stats_hgt_dict)
+        #pprint.pprint(stats_agb_dict)
+        #pprint.pprint(stats_hgt_dict)
 
         if first:
             first = False
@@ -70,14 +70,16 @@ for protect_area_lyr in tqdm.tqdm(protect_area_lyrs):
             out_agb_hist[WDPAID] = out_agb_hist[WDPAID] + numpy.array(stats_agb_dict["hist"], dtype=numpy.uint32)
             out_hchm_hist[WDPAID] = out_hchm_hist[WDPAID] + numpy.array(stats_hgt_dict["hist"], dtype=numpy.uint32)
 
-
+    agb_avg = 0.0
+    if agb_count > 0:
+        agb_avg = agb_tot / agb_count
+    hchm_avg = 0.0
+    if hchm_count > 0.0:
+        hchm_avg = hchm_tot / hchm_count
     out_data_dict["WDPAID"].append(WDPAID)
     out_data_dict["agb_tot"].append(agb_area_tot)
-    out_data_dict["agb_avg"].append(agb_tot/agb_count)
-    out_data_dict["hchm_avg"].append(hchm_tot/hchm_count)
-
-    break
-
+    out_data_dict["agb_avg"].append(agb_avg)
+    out_data_dict["hchm_avg"].append(hchm_avg)
 
 df_stats = pandas.DataFrame.from_dict(out_data_dict)
 df_stats.to_feather("protected_agb_hgt_summarised_base_stats.feather")

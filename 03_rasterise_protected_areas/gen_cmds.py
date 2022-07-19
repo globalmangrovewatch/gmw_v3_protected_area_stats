@@ -55,6 +55,13 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_ext_protect_areas",
         )
 
+        self.gen_command_info(
+            vec_protect_areas_file="/home/pete/Documents/gmw_protected_areas/data/protected_areas/WDPA-July22-PA_DEF-STATUS-MANGROVE_ind_sites.gpkg",
+            tile_lut_file="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_tiles_lut.json",
+            ref_img_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_agb_hchm/agb_mng_mjr_2020_tif",
+            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas",
+            )
+
         self.pop_params_db()
         self.create_shell_exe(
             run_script="run_exe_analysis.sh",

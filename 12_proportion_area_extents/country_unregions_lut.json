@@ -1,0 +1,156 @@
+{
+    "ANZ": [
+        "Australia",
+        "New Zealand"
+    ],
+    "CAm": [
+        "Mexico",
+        "Belize",
+        "Costa Rica",
+        "El Salvador",
+        "Guatemala",
+        "Honduras",
+        "Nicaragua",
+        "Panama"
+    ],
+    "Car": [
+        "Antigua and Barbuda",
+        "Bahamas",
+        "Barbados",
+        "Cuba",
+        "Dominica",
+        "Dominican Republic",
+        "Grenada",
+        "Haiti",
+        "Jamaica",
+        "Saint Kitts and Nevis",
+        "Saint Lucia",
+        "Saint Vincent and the Grenadines",
+        "Trinidad and Tobago",
+        "Puerto Rico",
+        "Virgin Islands, U.S.",
+        "Guadeloupe",
+        "Martinique",
+        "Saint-Martin",
+        "Aruba",
+        "Bonaire, Sint Eustatius and Saba",
+        "Curaçao",
+        "Sint Maarten",
+        "Anguilla",
+        "British Virgin Islands",
+        "Cayman Islands",
+        "Turks and Caicos Islands"
+    ],
+    "EAf": [
+        "Comoros",
+        "Djibouti",
+        "Egypt",
+        "Eritrea",
+        "French Southern Territories",
+        "Kenya",
+        "Madagascar",
+        "Mauritius",
+        "Mozambique",
+        "Seychelles",
+        "Somalia",
+        "Sudan",
+        "Tanzania",
+        "Mayotte"
+    ],
+    "EAs": [
+        "China",
+        "Japan",
+        "Taiwan"
+    ],
+    "MAf": [
+        "Angola",
+        "Cameroon",
+        "Republic of Congo",
+        "Democratic Republic of the Congo",
+        "Equatorial Guinea",
+        "Gabon",
+        "São Tomé and Príncipe"
+    ],
+    "Mel": [
+        "Fiji",
+        "New Caledonia",
+        "Papua New Guinea",
+        "Solomon Islands",
+        "Vanuatu"
+    ],
+    "Mic": [
+        "Guam",
+        "Kiribati",
+        "Marshall Islands",
+        "Micronesia",
+        "Palau"
+    ],
+    "NAm": [
+        "Bermuda",
+        "United States"
+    ],
+    "Pol": [
+        "American Samoa",
+        "Cook Islands",
+        "French Polynesia",
+        "Samoa",
+        "Tonga",
+        "Tuvalu",
+        "Wallis and Futuna"
+    ],
+    "SAf": [
+        "South Africa"
+    ],
+    "SAm": [
+        "Brazil",
+        "Colombia",
+        "Ecuador",
+        "Guyana",
+        "Peru",
+        "Suriname",
+        "Venezuela",
+        "French Guiana"
+    ],
+    "SAs": [
+        "Bangladesh",
+        "India",
+        "Iran",
+        "Maldives",
+        "Pakistan",
+        "Sri Lanka"
+    ],
+    "SEAs": [
+        "Brunei",
+        "Cambodia",
+        "Indonesia",
+        "Malaysia",
+        "Myanmar",
+        "Philippines",
+        "Singapore",
+        "Thailand",
+        "Timor-Leste",
+        "Vietnam"
+    ],
+    "WAf": [
+        "Benin",
+        "Côte d'Ivoire",
+        "Gambia",
+        "Ghana",
+        "Guinea",
+        "Guinea-Bissau",
+        "Liberia",
+        "Mauritania",
+        "Nigeria",
+        "Senegal",
+        "Sierra Leone",
+        "Togo"
+    ],
+    "WAs": [
+        "Bahrain",
+        "Oman",
+        "Qatar",
+        "Saudi Arabia",
+        "United Arab Emirates",
+        "Yemen"
+    ]
+}

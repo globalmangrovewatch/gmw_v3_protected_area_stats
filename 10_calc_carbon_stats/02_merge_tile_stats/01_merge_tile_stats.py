@@ -10,6 +10,7 @@ import numpy
 
 vec_protect_areas_file = "/home/pete/Documents/gmw_protected_areas/data/protected_areas/WDPA-July22-PA_DEF-STATUS-MANGROVE_ind_sites.gpkg"
 out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas"
+out_xtr_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas_dec22"
 
 protect_area_lyrs = rsgislib.vectorutils.get_vec_lyrs_lst(vec_protect_areas_file)
 
@@ -32,9 +33,9 @@ out_tot_co2_hist = dict()
 
 for protect_area_lyr in tqdm.tqdm(protect_area_lyrs):
     #print(protect_area_lyr)
-    soil_c_stats_dir = os.path.join(out_path, protect_area_lyr, "soil_c_tile_stats")
-    tot_c_stats_dir = os.path.join(out_path, protect_area_lyr, "total_c_tile_stats")
-    tot_co2_stats_dir = os.path.join(out_path, protect_area_lyr, "total_co2_tile_stats")
+    soil_c_stats_dir = os.path.join(out_xtr_path, protect_area_lyr, "soil_c_tile_stats")
+    tot_c_stats_dir = os.path.join(out_xtr_path, protect_area_lyr, "total_c_tile_stats")
+    tot_co2_stats_dir = os.path.join(out_xtr_path, protect_area_lyr, "total_co2_tile_stats")
 
     protect_area_tiles = tile_lut[protect_area_lyr]
     first = True

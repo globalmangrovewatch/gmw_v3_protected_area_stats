@@ -6,7 +6,7 @@ import os
 import rsgislib.tools.filetools
 import rsgislib.tools.utils
 import rsgislib.vectorutils
-
+import tqdm
 logger = logging.getLogger(__name__)
 
 
@@ -21,8 +21,8 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
         tile_lut = rsgislib.tools.utils.read_json_to_dict(kwargs["tile_lut_file"])
 
         n_miss_tiles = 0
-        for protect_area_lyr in protect_area_lyrs:
-            print(protect_area_lyr)
+        for protect_area_lyr in tqdm.tqdm(protect_area_lyrs):
+            #print(protect_area_lyr)
             protect_area_tiles = tile_lut[protect_area_lyr]
             out_protect_dir = os.path.join(kwargs["out_path"], protect_area_lyr)
             if not os.path.exists(out_protect_dir):
@@ -38,12 +38,13 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
 
             for protect_area_tile in protect_area_tiles:
                 carbon_img_file = rsgislib.tools.filetools.find_file_none(
-                    kwargs["carbon_img_dir"], f"*{protect_area_tile}*.tif"
+                    kwargs["carbon_img_dir"], f"*{protect_area_tile}*.kea"
                 )
                 if carbon_img_file is None:
                     print("No Carbon Image file: {}".format(protect_area_tile))
                     n_miss_tiles=+1
                     continue
+                    #raise Exception("No Carbon Image file: {}".format(protect_area_tile))
 
                 pxl_area_img_file = rsgislib.tools.filetools.find_file_none(
                     kwargs["pxl_area_dir"], f"*{protect_area_tile}*.kea"

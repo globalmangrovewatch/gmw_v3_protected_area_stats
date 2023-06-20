@@ -1,7 +1,7 @@
 import geopandas
 import pandas
 
-vec_file = "/Users/pete/Dropbox/University/Research/Projects/GlobalMangroveWatch/202207_ProtectedAreas/WDPA-July22-PA_DEF-STATUS-MANGROVE.gpkg"
+vec_file = "/Users/pfb/Dropbox/University/Research/Projects/GlobalMangroveWatch/202207_ProtectedAreas/WDPA-July22-PA_DEF-STATUS-MANGROVE.gpkg"
 vec_lyr = "WDPA-July22-PA_DEF-STATUS-MANGROVE-2"
 
 wpda_gpdf = geopandas.read_file(vec_file, layer=vec_lyr)
@@ -20,4 +20,3 @@ wpda_gpdf_join = wpda_gpdf_join.join(agb_hgt_stats_df.set_index("WDPAID"), on="W
 wpda_gpdf_join = wpda_gpdf_join.join(carbon_stats_df.set_index("WDPAID"), on="WDPAID")
 
 wpda_gpdf_join.to_file("WDPA_July22_PA_DEF_STATUS_MANGROVE_GMW_Stats.gpkg", layer="WDPA_July22_PA_DEF_STATUS_MANGROVE_GMW_Stats", driver="GPKG")
-

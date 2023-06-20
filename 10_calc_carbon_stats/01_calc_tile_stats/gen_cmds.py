@@ -31,6 +31,9 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             if not os.path.exists(roi_dir):
                 os.mkdir(roi_dir)
 
+            out_protect_xtr_dir = os.path.join("/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas", protect_area_lyr)
+            roi_xtr_dir = os.path.join(out_protect_xtr_dir, "extent")
+
             out_dir = os.path.join(out_protect_dir, kwargs["out_dir_name"])
             if not os.path.exists(out_dir):
                 os.mkdir(out_dir)
@@ -51,6 +54,11 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
 
                 roi_img = os.path.join(
                     roi_dir, "{}_protect_area_extent.kea".format(protect_area_tile)
+                    )
+                if not os.path.exists(roi_img):
+                    roi_img = os.path.join(
+                            roi_xtr_dir,
+                            "{}_protect_area_extent.kea".format(protect_area_tile)
                     )
 
                 out_file = os.path.join(
@@ -95,7 +103,7 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             out_dir_name="total_co2_tile_stats_dec22",
             out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas_dec22",
             )
-        
+
         self.pop_params_db()
         self.create_shell_exe(
             run_script="run_exe_analysis.sh",

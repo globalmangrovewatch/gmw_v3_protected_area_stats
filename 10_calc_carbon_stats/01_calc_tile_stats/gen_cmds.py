@@ -67,38 +67,38 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
         self.gen_command_info(
             vec_protect_areas_file="/home/pete/Documents/gmw_protected_areas/data/protected_areas/WDPA-July22-PA_DEF-STATUS-MANGROVE_ind_sites.gpkg",
             tile_lut_file="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_tiles_lut.json",
-            carbon_img_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_carbon_data/2018_2020_total_soc",
+            carbon_img_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_carbon_data_dec2022/total_soc",
             pxl_area_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_agb_hchm/pxl_areas",
             out_file_name="soil_c",
-            out_dir_name="soil_c_tile_stats",
-            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas",
+            out_dir_name="soil_c_tile_stats_dec22",
+            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas_dec22",
         )
 
         self.gen_command_info(
             vec_protect_areas_file="/home/pete/Documents/gmw_protected_areas/data/protected_areas/WDPA-July22-PA_DEF-STATUS-MANGROVE_ind_sites.gpkg",
             tile_lut_file="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_tiles_lut.json",
-            carbon_img_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_carbon_data/2018_2020_total_c",
+            carbon_img_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_carbon_data_dec2022/total_c",
             pxl_area_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_agb_hchm/pxl_areas",
             out_file_name="total_c",
-            out_dir_name="total_c_tile_stats",
-            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas",
+            out_dir_name="total_c_tile_stats_dec22",
+            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas_dec22",
             )
 
         self.gen_command_info(
             vec_protect_areas_file="/home/pete/Documents/gmw_protected_areas/data/protected_areas/WDPA-July22-PA_DEF-STATUS-MANGROVE_ind_sites.gpkg",
             tile_lut_file="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_tiles_lut.json",
-            carbon_img_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_carbon_data/2018_2020_total_co2",
+            carbon_img_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_carbon_data_dec2022/total_co2",
             pxl_area_dir="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_agb_hchm/pxl_areas",
             out_file_name="total_co2",
-            out_dir_name="total_co2_tile_stats",
-            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas",
+            out_dir_name="total_co2_tile_stats_dec22",
+            out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas_dec22",
             )
 
         self.pop_params_db()
         self.create_shell_exe(
             run_script="run_exe_analysis.sh",
             cmds_sh_file="cmds_lst.sh",
-            n_cores=50,
+            n_cores=25,
             db_info_file="pbpt_db_conn_info.json",
         )
 

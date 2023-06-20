@@ -20,7 +20,6 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
         )
         tile_lut = rsgislib.tools.utils.read_json_to_dict(kwargs["tile_lut_file"])
 
-        n_miss_tiles = 0
         for protect_area_lyr in tqdm.tqdm(protect_area_lyrs):
             #print(protect_area_lyr)
             protect_area_tiles = tile_lut[protect_area_lyr]
@@ -41,10 +40,8 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
                     kwargs["carbon_img_dir"], f"*{protect_area_tile}*.kea"
                 )
                 if carbon_img_file is None:
-                    print("No Carbon Image file: {}".format(protect_area_tile))
-                    n_miss_tiles=+1
-                    continue
-                    #raise Exception("No Carbon Image file: {}".format(protect_area_tile))
+                    #print("No Carbon Image file: {}".format(protect_area_tile))
+                    raise Exception("No Carbon Image file: {}".format(protect_area_tile))
 
                 pxl_area_img_file = rsgislib.tools.filetools.find_file_none(
                     kwargs["pxl_area_dir"], f"*{protect_area_tile}*.kea"
@@ -66,7 +63,6 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
                     c_dict["roi_img"] = roi_img
                     c_dict["out_file"] = out_file
                     self.params.append(c_dict)
-        print(f"Missing {n_miss_tiles} tiles...")
 
     def run_gen_commands(self):
 
@@ -79,7 +75,7 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             out_dir_name="soil_c_tile_stats_dec22",
             out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas_dec22",
         )
-        """
+
         self.gen_command_info(
             vec_protect_areas_file="/home/pete/Documents/gmw_protected_areas/data/protected_areas/WDPA-July22-PA_DEF-STATUS-MANGROVE_ind_sites.gpkg",
             tile_lut_file="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_tiles_lut.json",
@@ -99,7 +95,7 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             out_dir_name="total_co2_tile_stats_dec22",
             out_path="/home/pete/Documents/gmw_protected_areas/data/gmw_srtm_protect_areas_dec22",
             )
-        """
+        
         self.pop_params_db()
         self.create_shell_exe(
             run_script="run_exe_analysis.sh",

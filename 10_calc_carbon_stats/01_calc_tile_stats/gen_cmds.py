@@ -34,12 +34,15 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
             if not os.path.exists(out_dir):
                 os.mkdir(out_dir)
 
+            n_miss_tiles = 0
             for protect_area_tile in protect_area_tiles:
                 carbon_img_file = rsgislib.tools.filetools.find_file_none(
                     kwargs["carbon_img_dir"], f"*{protect_area_tile}*.tif"
                 )
                 if carbon_img_file is None:
-                    raise Exception("No Carbon Image file: {}".format(protect_area_tile))
+                    print("No Carbon Image file: {}".format(protect_area_tile))
+                    n_miss_tiles=+1
+                    continue
 
                 pxl_area_img_file = rsgislib.tools.filetools.find_file_none(
                     kwargs["pxl_area_dir"], f"*{protect_area_tile}*.kea"
@@ -61,6 +64,7 @@ class GenTaskCmds(PBPTGenQProcessToolCmds):
                     c_dict["roi_img"] = roi_img
                     c_dict["out_file"] = out_file
                     self.params.append(c_dict)
+            print(f"Missing {n_miss_tiles} tiles...")
 
     def run_gen_commands(self):
 
